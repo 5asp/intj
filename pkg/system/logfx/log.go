@@ -8,6 +8,5 @@ import (
 func ProvideLogger() *zap.SugaredLogger {
 	logger, _ := zap.NewProduction()
 	slogger := logger.Sugar()
-
 	return slogger
 }

@@ -12,6 +12,7 @@ func ProvideColly() *colly.Collector {
 	c := colly.NewCollector()
 	extensions.Referer(c)
 	extensions.RandomUserAgent(c)
+
 	c.OnRequest(func(r *colly.Request) {
 		log.Println("Visiting", r.URL)
 	})
