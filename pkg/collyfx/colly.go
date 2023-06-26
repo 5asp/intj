@@ -1,4 +1,4 @@
-package pkgcolly
+package collyfx
 
 import (
 	"log"
@@ -7,7 +7,8 @@ import (
 	"github.com/gocolly/colly/extensions"
 )
 
-func NewColly() *colly.Collector {
+// ProvideColly to fx
+func ProvideColly() *colly.Collector {
 	c := colly.NewCollector()
 	extensions.Referer(c)
 	extensions.RandomUserAgent(c)

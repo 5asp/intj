@@ -1,4 +1,4 @@
-package pkgmongo
+package mongofx
 
 import (
 	"context"
