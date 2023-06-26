@@ -1,0 +1,7 @@
+maxlds: 1000
+mongo:
+  # url:  mongo-mongodb.db-system.svc.cluster.local
+  port: 27107
+  url: 
+  user: root
+  password: Lumia650
