@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/kzaun/intj/internal/fetcher"
+	fetcher "github.com/kzaun/intj/internal/job"
 	"go.uber.org/fx"
 )
 
