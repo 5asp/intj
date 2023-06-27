@@ -1,4 +1,4 @@
-package fetcher
+package job
 
 import (
 	"context"

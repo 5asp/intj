@@ -1,7 +1,7 @@
 package main
 
 import (
-	fetcher "github.com/kzaun/intj/internal/job"
+	"github.com/kzaun/intj/internal/oss"
 	"go.uber.org/fx"
 )
 
@@ -9,6 +9,6 @@ func main() {
 	fx.New(
 		fx.NopLogger,
 		// configfx.FxInitConfigOption("app"),
-		fetcher.Module,
+		oss.Module,
 	).Run()
 }

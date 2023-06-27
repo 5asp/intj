@@ -1,12 +1,13 @@
 package logfx
 
 import (
-	"go.uber.org/zap"
+	"os"
+
+	"golang.org/x/exp/slog"
 )
 
 // ProvideLogger to fx
-func ProvideLogger() *zap.SugaredLogger {
-	logger, _ := zap.NewProduction()
-	slogger := logger.Sugar()
-	return slogger
+func ProvideLogger() *slog.Logger {
+	logger := slog.New(slog.NewTextHandler(os.Stderr, nil))
+	return logger
 }
