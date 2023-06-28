@@ -8,6 +8,6 @@ import (
 
 // ProvideLogger to fx
 func ProvideLogger() *slog.Logger {
-	logger := slog.New(slog.NewTextHandler(os.Stderr, nil))
+	logger := slog.New(slog.NewJSONHandler(os.Stderr, nil))
 	return logger
 }

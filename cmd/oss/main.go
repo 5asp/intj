@@ -25,7 +25,7 @@ func main() {
 	}
 
 	// Make a new bucket called mymusic.
-	bucketName := "images"
+	bucketName := "novel"
 	location := "us-east-1"
 
 	err = minioClient.MakeBucket(ctx, bucketName, minio.MakeBucketOptions{Region: location})
@@ -44,7 +44,7 @@ func main() {
 	// Upload the zip file
 	objectName := "go.mod"
 	filePath := "./go.mod"
-	contentType := "text/plain"
+	contentType := "video/x-mpg"
 
 	// Upload the zip file with FPutObject
 	info, err := minioClient.FPutObject(ctx, bucketName, objectName, filePath, minio.PutObjectOptions{ContentType: contentType})

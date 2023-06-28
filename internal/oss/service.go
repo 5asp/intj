@@ -9,5 +9,5 @@ func NewService() Service {
 type Service interface {
 	add(name string) error
 	remove(id int) error
-	getAll() ([]model, error)
+	// getAll() ([]model, error)
 }
