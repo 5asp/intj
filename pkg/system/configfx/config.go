@@ -1,18 +1,14 @@
 package configfx
 
 import (
-	"fmt"
-
+	"github.com/knadh/koanf/parsers/yaml"
+	"github.com/knadh/koanf/providers/file"
 	"github.com/knadh/koanf/v2"
-	"go.uber.org/fx"
 )
 
 // ProvideConfig to fx
-func ProvideConfig() fx.Option {
-	fmt.Println()
-	return fx.Provide(func() *koanf.Koanf {
-		conf := koanf.New(".")
-		// conf.Load(file.Provider("configs/"+configFilePath+"/app.yaml"), yaml.Parser())
-		return conf
-	})
+func ProvideConfig() *koanf.Koanf {
+	conf := koanf.New(".")
+	conf.Load(file.Provider("app.yaml"), yaml.Parser())
+	return conf
 }
