@@ -1,6 +1,6 @@
 module github.com/kzaun/intj
 
-go 1.21
+go 1.20
 
 require (
 	github.com/gocolly/colly v1.2.0

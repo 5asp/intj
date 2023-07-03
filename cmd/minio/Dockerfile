@@ -16,7 +16,7 @@ RUN go mod download
 COPY . .
 
 RUN go mod tidy
-RUN go build -v -o minio cmd/minio/main.go
+RUN go build -v -o minio main.go
 
 FROM scratch
 
