@@ -1,8 +1,6 @@
 package main
 
 import (
-	"context"
-	"net"
 	"net/http"
 
 	"github.com/kzaun/intj/internal/minio"
@@ -19,7 +17,7 @@ func main() {
 	fx.New(
 		minio.Module,
 		fx.Provide(
-			NewHTTPServer,
+			lib.NewHTTPServer,
 			configfx.ProvideConfig,
 			miniofx.ProvideMinio,
 			logfx.ProvideLogger,
@@ -34,30 +32,4 @@ func main() {
 		}),
 		fx.Invoke(func(*http.Server) {}),
 	).Run()
-}
-
-func NewHTTPServer(lc fx.Lifecycle, mux *http.ServeMux, slog *zap.SugaredLogger) *http.Server {
-	srv := &http.Server{Addr: ":8080", Handler: mux}
-	lc.Append(fx.Hook{
-		OnStart: func(ctx context.Context) error {
-			ln, err := net.Listen("tcp", srv.Addr)
-			if err != nil {
-				return err
-			}
-			slog.Info("Starting HTTP server", zap.String("addr", srv.Addr))
-			go srv.Serve(ln)
-			return nil
-		},
-		OnStop: func(ctx context.Context) error {
-			err := syncLog(slog)
-			if err != nil {
-				return err
-			}
-			return srv.Shutdown(ctx)
-		},
-	})
-	return srv
-}
-func syncLog(slog *zap.SugaredLogger) error {
-	return slog.Sync()
 }

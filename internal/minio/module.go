@@ -10,6 +10,7 @@ import (
 var Module = fx.Module("minio",
 	fx.Provide(
 		service.ProvideService,
-		lib.AsRoute(handler.ProvideEchoHandler),
+		// lib.AsRoute(handler.ProvideEchoHandler),
+		lib.AsRoute(handler.ProvideUploadHandler),
 	),
 )
