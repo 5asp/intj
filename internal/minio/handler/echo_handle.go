@@ -5,18 +5,18 @@ import (
 
 	"github.com/kzaun/intj/internal/minio/service"
 	reutrns "github.com/kzaun/intj/pkg/lib/returns"
-	"github.com/rs/zerolog"
 	"go.uber.org/fx"
+	"go.uber.org/zap"
 )
 
 type EchoHandler struct {
-	log *zerolog.Logger
+	log *zap.Logger
 	svc *service.Service
 }
 
 type Params struct {
 	fx.In
-	Logger  *zerolog.Logger `optional:"true"`
+	Logger  *zap.Logger `optional:"true"`
 	Service *service.Service
 }
 
