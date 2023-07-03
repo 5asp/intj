@@ -9,7 +9,7 @@ ENV GO111MODULE=on \
 WORKDIR /app 
 
 COPY go.mod .
-COPY config/minio/app.yaml .
+COPY app.yaml .
 
 RUN go mod download
 
